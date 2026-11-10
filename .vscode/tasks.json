@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compilar laboratorio",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["build", "TravelWeather.sln"],
+      "problemMatcher": "$msCompile",
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "label": "Ejecutar API local",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["run", "--project", "src/TravelWeather.Api", "--no-launch-profile", "--urls", "http://localhost:5050"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Ejecutar pruebas locales",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["test", "TravelWeather.sln"],
+      "problemMatcher": "$msCompile",
+      "group": { "kind": "test", "isDefault": true }
+    }
+  ]
+}

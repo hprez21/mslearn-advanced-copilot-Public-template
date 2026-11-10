@@ -1,0 +1,45 @@
+@baseUrl = http://localhost:5050
+
+### Inicio: 302 con Location: /docs
+GET {{baseUrl}}/
+
+### Scalar: documentación interactiva y cliente de solicitudes
+GET {{baseUrl}}/docs/
+
+### Tabla de valores que se deben introducir
+GET {{baseUrl}}/ejemplos
+
+### Países: 200 con un arreglo JSON de siete nombres
+GET {{baseUrl}}/countries
+Accept: application/json
+
+### Temperaturas: 200 con {"high":61,"low":41}, en Fahrenheit
+GET {{baseUrl}}/countries/Spain/Seville/January
+Accept: application/json
+
+### Otro ejemplo: 200 con {"high":45,"low":36}. Las consultas GET no llevan body.
+GET {{baseUrl}}/countries/England/London/January
+Accept: application/json
+
+### Ciudad inexistente: 404 ProblemDetails
+GET {{baseUrl}}/countries/Spain/Madrid/January
+Accept: application/json
+
+### Contrato generado
+GET {{baseUrl}}/openapi/v1.json
+Accept: application/json
+
+### EJERCICIO: antes de implementar, 404; después, 200 con ["Seville"]
+GET {{baseUrl}}/countries/Spain
+Accept: application/json
+
+### EJERCICIO: después de implementar, 200 con ["Lisbon","Porto"]
+GET {{baseUrl}}/countries/Portugal
+Accept: application/json
+
+### EJERCICIO: país inexistente, 404; después de implementar, ProblemDetails
+GET {{baseUrl}}/countries/Atlantis
+Accept: application/json
+
+### EJERCICIO: después de implementar, 405 (la ruta sólo permite GET)
+POST {{baseUrl}}/countries/Spain

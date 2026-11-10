@@ -1,0 +1,16 @@
+**/bin/
+**/obj/
+**/TestResults/
+.vs/
+.idea/
+*.user
+*.suo
+*.log
+*.zip
+.DS_Store
+Thumbs.db
+.tools/
+_validation/
+.env
+.env.*
+!.env.example
